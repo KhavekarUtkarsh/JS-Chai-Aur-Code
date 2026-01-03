@@ -67,7 +67,62 @@
 
 
 
-let number=23
-let stringNumber= String(number)
-console.log(stringNumber) // This will give output as "23" because we have converted number into string.
-console.log(typeof stringNumber) // This will give output as string because we have converted number into string.
+// let number=23
+// let stringNumber= String(number)
+// console.log(stringNumber) // This will give output as "23" because we have converted number into string.
+// console.log(typeof stringNumber) // This will give output as string because we have converted number into string.
+
+
+
+// ----------------- Operations -------------------
+
+// let value=3
+// let negValue= -value
+// console.log(negValue)
+
+
+// console.log(2+2)
+// console.log(2-2)
+// console.log(2*2)
+// console.log(2**2)
+// console.log(2/2)
+// console.log(2%2)
+
+
+
+// let str1= "Hello"
+// let str2= " Utkarsh"
+// let str3=str1+str2
+// console.log(str3)
+
+
+
+// ****** Problems ********
+
+// console.log("1"+2) // Here JS converts number 2 into string "2" and then concatenates both strings.
+// console.log(1+"2") // Here JS converts number 1 into string "1" and then concatenates both strings.
+// console.log("1"+"2") // Here both are strings, so they are concatenated.
+// console.log("1"+2+2) // Here firstly it converts number 2 into string "2" and then concatenates both strings and then again concatenates with another "2".
+// console.log(1+2+"2") // Here it firstly adds the numbers 1 & 2 then concatenate with the "2"
+
+
+
+// console.log(true); // This will give output as true
+// console.log(+true); // This will give output as 1 because here we are incrementing the value of boolean so it is 1.
+// console.log(+""); // Here we know that the value of the "" is 0 so by incrementing it still give output as 0.
+
+
+// Mistakes you should avoid while writing the code
+
+// let num1, num2, num3
+// num1 = num2 = num3= 2+2 // We should avoid to write codes like this.
+
+
+// let gameCounter= 100
+// gameCounter++
+// ++gameCounter               // Here both ways gives same output as 101.
+// console.log(gameCounter)
+
+
+// For better understanding of the Prefix and Postfix increment visit https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment
+
