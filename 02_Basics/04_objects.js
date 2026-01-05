@@ -54,9 +54,29 @@ const users =[
 // users[1].email   // If we want to access the email of the first user.
 
 
-console.log(Object.keys(tinderUser)); // This returns the Keys of the tinderUser Object. Note that here it returns the Array as the data type.
-console.log(Object.values(tinderUser)); // This also returns an Array of values of tinderUser.
+// console.log(Object.keys(tinderUser)); // This returns the Keys of the tinderUser Object. Note that here it returns the Array as the data type.
+// console.log(Object.values(tinderUser)); // This also returns an Array of values of tinderUser.
 
-console.log(Object.entries(tinderUser)); // This converts each and every key-value pairs inside the tinderUser into seperate Array's and again all these are inside Array.
+// console.log(Object.entries(tinderUser)); // This converts each and every key-value pairs inside the tinderUser into seperate Array's and again all these are inside Array.
 
-console.log(tinderUser.hasOwnProperty('isLoggedIn')) // To check if there any proprty inside the Object as given name.
+// console.log(tinderUser.hasOwnProperty('isLoggedIn')) // To check if there any proprty inside the Object as given name.
+
+
+
+// +++++++++++++++++++++++ Object de-code structures ++++++++++++++++++++++++++++++++++++++++
+
+const course = {
+    courseName : "JS in Hindi",
+    price : 999,
+    courseInstructor : "hitesh"
+}
+
+// course.courseInstructor  // In this way we can access the key-value of any object, but if we have to use it many times then it is not good to repeatedly use thw same course.courseInstructor.
+
+// const {courseInstructor} = course  // This is another method to access the key-value pairs of Object.
+// console.log(courseInstructor);
+
+
+// Also if you think this courseInstructor is very big name then we can also use another name instead as follows-
+const {courseInstructor : instructor} = course  // So the use of this {} method is called as Destructuring.
+console.log(instructor);
