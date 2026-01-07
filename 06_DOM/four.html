@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+
+<script>
+
+    //Function to add languages using "li"
+
+    function addLanguage(lang){
+        const li =document.createElement('li')
+        li.innerHTML = `${lang}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("java")
+    addLanguage("python")
+
+    // Above given is the very basic method to add new "li's".
+    // But here the problem is if we already have supose 1000 "li's" then document will have to traverse to the end of the Tree in order to append it at the end.
+
+
+    // We can erite it in another Optimized way as-
+
+    function addOptiLanguage(lang){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("cpp")
+
+
+    // Now how to "Edit" elements.
+
+    const secondLang = document.querySelector('li:nth-child(2)')
+    // secondLang.innerHTML = "mojo"   // Again try to avoid this because this is not Optimized.
+
+    const newli = document.createElement('li')
+    newli.textContent = "mojo"   // Here ".textContent" is same as ".innerHTML"
+    secondLang.replaceWith(newli)
+
+
+    // Task: Replace the javascript with golang
+
+    const firstLanguage = document.querySelector('li')
+    const newli1 = document.createElement('li')
+    newli1.textContent = "golang"
+    firstLanguage.replaceWith(newli1)
+
+    // We can also edit like following way-
+    
+    const firstLanguage1 = document.querySelector('li:first-child')
+    firstLanguage1.outerHTML= "<li>typescript</li>"
+
+
+    // To remove element-
+
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+</script>
+</html>

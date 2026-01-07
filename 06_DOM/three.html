@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    // Ww know that by using various ways we can access the parent, child elements.
+    // But we can also create elements as-
+
+    const div = document.createElement('div')
+    console.log(div) // This will create a "div" as  "<div></div>"
+
+    // Now we are going to add properties in it.
+
+    div.className = "main" // This gives class to the "div"
+    div.id = "myId" // This gives id to the "div"
+
+    // If we want to give/ set custom attributes then-
+
+    div.setAttribute("title" , "generatedTitle") // Here we have to give "key-value" pair as given.
+
+    div.style.backgroundColor ="red"
+    div.style.padding = "10px"
+
+    div.innerText = "Chai Aur Code" // This will add the text inside the given element ("div" here)
+
+    // Till here our "div" is in the Memory i.e. it will be seen on the console of the web page by inspecting it bit we can't see it on the actual web page for that we have to give say to attach this child on the document.
+
+    document.body.appendChild(div)
+</script>
+</html>

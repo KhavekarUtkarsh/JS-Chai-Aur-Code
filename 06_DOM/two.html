@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai Aur Code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent) // This will give all the elements present inside the class "parent".
+
+    // console.log(parent.children) // This returns the HTML collection consisting all the elements inside the class "parent".
+    
+    // console.log(parent.children[1]) // This gives the "div" at 1 index i.e. "div of Tuesday".
+
+    // console.log(parent.children[1].innerHTML) // This gives the value inside that particular element at index 1 i.e. Tuesday
+
+
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    // Here we are finding all the data inside the "parent" class using above "for" loop.
+
+    parent.children[1].style.color = "red" // Here we are adding red color to the child of index 1 of "class parent".
+
+    // console.log(parent.firstElementChild) // This gives us the first child element of class "parent".
+
+    // console.log(parent.lastElementChild) // This gives us the last child element of class "parent".
+
+
+    // Above we are going from parent to child. We can also go from child to parent.
+
+
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne)  // This will return first child having class "day".
+
+    // console.log(dayOne.parentElement) // This will give the parent element of the given child element.
+
+    // console.log(dayOne.nextElementSibling) // This will give the next child element of the given child element.
+
+    console.log("NODES:", parent.childNodes) // Here it will give all the Nodes. Remember though we have only 4 nodes in our code, because the browser also takes the line breaks that we are given by tapping ENTER after each line, here we obtain total 9 nodes. 
+</script>
+</html>
