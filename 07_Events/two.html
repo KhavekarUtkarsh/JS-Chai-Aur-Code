@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: #fff;">
+    <h1>Chai Aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     // console.log("Utkarsh")
+    // } , 2000)
+
+    // setTimeout is used when we want to do something after a particular interval of time.
+    // Here it will print my name after 2 seconds, as time is in mili seconds.
+    // But this will run only for a single time and not in loop.
+
+
+    const message = function(){
+        // console.log("UK")
+    }
+    setTimeout(message , 2000) // Also we can give reference of any function in it.
+
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Code with Me"
+    }
+    const setTime = setTimeout(changeText , 3000)
+
+    
+    // If we want to stop the Timeout we have clearTimeout() method.
+
+    document.querySelector('#stop').addEventListener('click' , function(){
+        clearTimeout(setTime)
+        console.log("Stopped")
+    })
+
+    // Here if we press the button before the setTimeout's time then it will completely stops it by using clearTimeout methood. Here in clearTimeout we have to give reference of the which setTimeout to use for clearTimeout.
+
+
+</script>
+</html>

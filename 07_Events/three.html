@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: #fff;">
+    <h1>Chai Aur JS</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setInterval(function(){
+    //     // console.log("Hello")
+    // } , 2000)
+
+    // setInterval is same like setTimeout but here it's working is differen.
+    // setInterval executes given function for the given time interval like after every 2s rint Hello, given here.
+
+    // const setTime = function(str){
+    //     // console.log("UK")
+    //     console.log(str)
+    // }
+    // setInterval(setTime , 1000)  // We can use it like this way.
+    // setInterval(setTime , 2000 , "Hello World!")  // Also we can give the input to the function.
+
+    // const stopTime = setInterval(setTime , 2000 , "Hello World!")
+    // clearInterval(stopTime)  // In this way we can stop the setInterval using the clearInterval.
+
+
+    // Task : When we click start button then printing should start and when we press the stop button then printing should stop.
+
+    // document.querySelector('#start').addEventListener('click' , function(){
+    //     const start = setInterval(function(){
+    //         console.log("Hello Everyone!!")
+    //     },1000)
+    // })
+    // document.querySelector('#stop').addEventListener('click' , function(){
+    //     clearInterval(start)
+    // })
+
+
+    // The above code is not correct because we have declared the "start" inside the callback function of the eventListener.
+    // So for clearTimeout the variable "start" is undefined so after clicking the stop it will not stop.
+    // Because the scope of the "start" is Block Scope and it is not in Global Scope.
+    
+
+    let start = null;
+
+    document.querySelector('#start').addEventListener('click', function () {
+        if (start === null) {
+            start = setInterval(function(){
+                console.log("Hello Everyone!!");
+            }, 1000);
+        }
+    });
+
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearInterval(start);
+        start = null;
+    });
+
+    // Also when we click multiple time on start then multiple setInterval will activate so to avoid this we can write code like given above.
+
+</script>
+
+</html>
