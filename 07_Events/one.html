@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("Owl Clicked!")
+    // }
+    // In this way we can add Event on id= owl, but this is not a good approach because it can cause some problems. It will provide less features.
+
+
+    // Here we use the modern way to use Events i.e. "addEventListener" method. Here there are three arameters, firstly the event like "click", then the function and lastly it is by default "false", it is not mandatory to write it, but it will be asked in Interview.
+    // There will many such application which will not work without mentioning it "true / false" so remember it.
+
+
+
+    // The ints to study for Interviews-
+
+    // type , timestamp , defaultPrevented
+    // target , toElement , srcElement , currentTarget
+    // clientX , clientY , screenX , screenY
+    // altKey , ctrlKey , shiftKey , keyCode
+
+
+
+
+    // document.getElementById('owl').addEventListener('click', function (event) {
+    //     // alert("Owl Clicked!!")
+    //     console.log(event)
+    // }, false)
+
+    // Here we get the "PointerEvent" as output of console.log(event) which is an Object.
+    
+    
+    // Here as I said the "true / false" attributes are related to concept called "Event Propogation".
+    // There are two types of Event Propagation as-
+    // 1) Event Bubbling(Commonly used {false})   2) Event Capturing(for some cases used{true})
+
+
+
+    // document.getElementById('images').addEventListener('click', function (event) {
+    //     // console.log("Clicked Inside ul")
+    // }, false)
+    
+    // document.getElementById('owl').addEventListener('click', function (event) {
+    //     // console.log("Clicked on owl")
+    // }, false)
+
+    // Now here we have given two events, one on id= images and another on id= owl.
+    // So if we click any image other than owl then we get first print output.
+    // But when we click on the owl image then we get second print as outut and then also the first one.
+    // This is happened due to Event Bubbling, because bubble always go from bottom to top. Same as that here we get 2nd & then 1st print as output.
+
+
+    // document.getElementById('images').addEventListener('click', function (event) {
+    //     // console.log("Clicked Inside ul")
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function (event) {
+    //     // console.log("Clicked on owl")
+    // }, true)
+
+    // Now if we use the "true", then it will traverse from top to bottom means here er get 1st print as output & then 2nd print as output.
+    // This is called as Event Capturing.
+
+
+
+    // And if we want to avoid the Event Bubbling then we can simply use "event.stopPropagation()" methosd as follows-
+
+    // document.getElementById('owl').addEventListener('click', function (event) {
+    //     console.log("Clicked on owl")
+    //     event.stopPropagation() // Using this we will not execute any other Event, i.e. will avoid Event Bubbling.
+    // }, true)
+
+
+
+    // document.getElementById('google').addEventListener('click' , function(event){
+    //     console.log("Google Clicked")
+    //     event.preventDefault() // This will prevent the default behaviour of the selected element. Means here we are redirection to Google website by clicking it , so this will be prevented.
+    //     event.stopPropagation() // This will avoid the Event Bubbling.
+    // }, false)
+
+
+
+    // Task: When we click on the images of "li" then these images should disappear.
+
+    // document.querySelector('#images').addEventListener('click' , function(event){
+    //     // console.log(event.target.parentNode)
+    //     let removeIt = event.target.parentNode
+    //     removeIt.remove() // This is one method to remove.
+
+    //     // removeIt.parentNode.removeChild(removeIt) // This is another method. Here we firstly take the parent node of "li" i.e. "ul" then we take "ul" child node "li" and finally remove it.
+    // })
+
+
+    // Here we print only "event" then we get an Object as outut.
+    // If we print "event.target" then we get the image address/link.
+    // If we print "event.target.parentNode" then we get the parentNode of images i.e. "li" here. We have taken this because when we remove only image then the Bullet point of that image's "li" will still remain there.
+
+    // But the problem is if we click on any "li" element then it's parent will be "ul" and we have given to remove the parent, so it will result in removing all the content. So we can write like-
+
+    document.querySelector('#images').addEventListener('click' , function(event){
+        console.log(event.target.tagName) // This will the tag name as IMG , UL ,etc.
+        if(event.target.tagName === "IMG"){
+            console.log(event.target.id) // This will give the id of the selected element.
+            let removeIt = event.target.parentNode
+            removeIt.remove()
+        }
+    })
+
+    // So this will not remove all the content when we click on "ul" elements, only deletes images(li elements).
+
+</script>
+
+</html>
