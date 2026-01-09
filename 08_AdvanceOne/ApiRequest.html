@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue;">
+    
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+
+    const xhr = new XMLHttpRequest()  // It is a kind of method which helps for data request send or receive.
+
+    xhr.open('GET' , requestUrl)  // open() consists of method & string. Method means which type of request you want to send.
+
+    xhr.onreadystatechange = function(){  // This is used to continuouslt track the change.
+        console.log(xhr.readyState)  // This give the current status code.
+
+        if(xhr.readyState === 4){
+            // const data= this.responseText
+            const data = JSON.parse(this.responseText)  // Here we are converting the String data into JSON data type. Here ".parse" used to convert it into JSON type.
+
+            console.log(typeof data) // Now here we get data type as Object.
+
+            console.log(data.followers)
+        }
+    }
+
+    xhr.send() // This ".send()" mainly used in order to call ".open()".
+
+</script>
+</html>
