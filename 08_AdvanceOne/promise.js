@@ -132,3 +132,9 @@ fetch('https://jsonplaceholder.typicode.com/users')
     console.log(data)
 })
 .catch((error) => console.log(error))
+
+// The global fetch() method starts the process of fetching a ressource from a network, returning a promise which is fulfilled once the response is available.
+
+// A fetch() promise only rejects when a network error is encountered (which is usually when there's a permission issue or similar).
+
+// A fetch() promise does not reject on HTTP errors (404 , etc.).
