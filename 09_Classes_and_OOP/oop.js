@@ -33,7 +33,7 @@ const user = {
 
 
 function User(username , loginCount , isLogggedIn){
-    username = username   // This will create confusion that which is passing the value and which one is taking. So for that-
+    // username = username   // This will create confusion that which is passing the value and which one is taking. So for that-
 
     this.username = username  // Here left side is a "Variable" and the Right Side is the value we are passing.
 
