@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Aur Chai</title>
+</head>
+
+<body style="background-color: #414141; color: #fff;">
+
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+
+    <script>
+        // function init() {
+        //     let name = "Mozilla"; // name is a local variable created by init
+        //     function displayName() {
+        //         // displayName() is the inner function, that forms a closure
+        //         console.log(name); // use variable declared in the parent function
+        //     }
+        //     displayName();
+        // }
+        // init();
+
+        // Here the only point is we can access the values of the variables that are present in outer function of an inner function.
+
+        // And this is nothing but called as "Lexical Scoping".
+
+
+
+        // function makeFunc() {
+        //     const name = "Mozilla";
+        //     function displayName() {
+        //         console.log(name);
+        //     }
+        //     return displayName;
+        // }
+
+        // const myFunc = makeFunc();
+        // myFunc();
+
+
+        // Here when we are calling the function "makeFunc()" , then as given in code we are returning the "displayName()" function, but the main point is here we are not only returning the "displayName() function scope" but also we are returning it's "Lexical Scope".
+
+        // Means here the whole (makeFunc()) function's scope ie returning.
+
+        // So then how we are going to get the value if the "name", by the "Memory" of the JS.
+    </script>
+
+    <script>
+
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = "Orange"
+        // }
+
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = "Green"
+        // }
+
+        // BUt when we have to do the same for suppose 500 buttons then we are not going to write it like this way.
+
+        function clickHandler(color) {
+            // document.body.style.backgroundColor = `${color}`
+
+            return function() {
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById("orange").onclick = clickHandler("orange")
+        document.getElementById("green").onclick = clickHandler("green")
+
+        // The "onclick" need a function but here we are telling that to execute the function. So here the problem arises because we are not pressing the buttons but still background color is changed.
+
+        // So here we have to change the definition of the function.
+
+        // So here we are now returnong the whole function to "onclick", but as we know the concept of "Lexical Scoping" and "Closure" we know that when we are returning the function then onlt the function is not returning, the whole function clickHandler"s scope is returning.
+        
+        // And that's why the inner function can access the value of the "color".
+    </script>
+</body>
+
+</html>
